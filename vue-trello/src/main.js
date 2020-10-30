@@ -25,6 +25,7 @@ const routes = [
 // 추가 옵션을 여기서 전달해야합니다.
 // 지금은 간단하게 유지하겠습니다.
 const router = new VueRouter({
+  mode: 'history', // history API를 사용
   routes // `routes: routes`의 줄임
 })
 
