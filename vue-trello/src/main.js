@@ -7,7 +7,7 @@ const Login = {
 }
 
 // 2. 라우트를 정의
-// 라우팅 맵을 자바스크립느 객체로 만듬
+// 라우터 맵을 자바스크립느 객체로 만듬
 const routes = {
   '/': App,
   '/login': Login,
@@ -18,7 +18,7 @@ new Vue({
   el: '#app',
   computed: {
     VueComponent(){
-      // 경로에다라 컴포넌트를 다르게 반환예정
+      // 브라우저 요청 경로에 따라 컴포넌트를 다르게 반환
       return routes[window.location.pathname] || { template: '<div>Page Not Found</div>' }
     }
   },
