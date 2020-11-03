@@ -4,6 +4,7 @@ import Home from '../components/Home.vue'
 import Login from '../components/Login.vue' 
 import NotFound from '../components/NotFound.vue' 
 import Borad from '../components/Borad.vue' 
+import Card from '../components/Card.vue' 
 
 // 사용하려면 Vue.use() 라는 함수 사용 해서 추가해야함 = 미들웨어? 라고함
 Vue.use(VueRouter)
@@ -14,10 +15,28 @@ Vue.use(VueRouter)
 // "component"는 `Vue.extend()`를 통해 만들어진
 // 실제 컴포넌트 생성자이거나 컴포넌트 옵션 객체입니다.
 const routes = [
-  { path: '/', component: Home },
-  { path: '/login', component: Login },
-  { path: '/b/:boradId', component: Borad }, // :boradId 라는 변수로 id값 받음
-  { path: '*', component: NotFound }, // 우선순위가 선언된 순서대로 정해짐
+  { 
+    path: '/', 
+    component: Home,
+  },
+  { 
+    path: '/login', 
+    component: Login, 
+  },
+  { 
+    path: '/b/:boradId', // :boradId 라는 변수로 id값 받음
+    component: Borad,
+    children: [ // 하위
+      { 
+        path: '/b/:boradId/c/:cardId', 
+        component: Card,
+      },
+    ],
+  }, 
+  {// 우선순위가 선언된 순서대로 정해짐 
+    path: '*', 
+    component: NotFound,
+  }, 
 ]
 
 // 3. `routes` 옵션과 함께 router 인스턴스를 만드세요.
