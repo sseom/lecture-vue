@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../components/Home.vue' 
 import Login from '../components/Login.vue' 
 import NotFound from '../components/NotFound.vue' 
+import Borad from '../components/Borad.vue' 
 
 // 사용하려면 Vue.use() 라는 함수 사용 해서 추가해야함 = 미들웨어? 라고함
 Vue.use(VueRouter)
@@ -15,6 +16,7 @@ Vue.use(VueRouter)
 const routes = [
   { path: '/', component: Home },
   { path: '/login', component: Login },
+  { path: '/b/:boradId', component: Borad }, // :boradId 라는 변수로 id값 받음
   { path: '*', component: NotFound }, // 우선순위가 선언된 순서대로 정해짐
 ]
 
