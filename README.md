@@ -28,3 +28,5 @@
 
 7. [중첩 라우트 nested](https://github.com/sseom/lecture-vue-trello/tree/routing/nested)
   - `children : [ { path: '/b/:boradId/c/:cardId', component: Card, } ]`
+
+8. [데이터 불러오기 fetch](https://github.com/sseom/lecture-vue-trello/tree/routing/fetch)
