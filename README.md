@@ -30,3 +30,8 @@
   - `children : [ { path: '/b/:boradId/c/:cardId', component: Card, } ]`
 
 8. [데이터 불러오기 fetch](https://github.com/sseom/lecture-vue-trello/tree/routing/fetch)
+
+### Section 2. API
+1. [basic](https://github.com/sseom/lecture-vue-trello/tree/api/basic)
+
+2. [Axios](https://github.com/sseom/lecture-vue-trello/tree/api/axios)
