@@ -35,3 +35,5 @@
 1. [basic](https://github.com/sseom/lecture-vue-trello/tree/api/basic)
 
 2. [Axios](https://github.com/sseom/lecture-vue-trello/tree/api/axios)
+
+3. [Board](https://github.com/sseom/lecture-vue-trello/tree/api/board)
