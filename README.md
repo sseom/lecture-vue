@@ -37,3 +37,8 @@
 2. [Axios](https://github.com/sseom/lecture-vue-trello/tree/api/axios)
 
 3. [Board](https://github.com/sseom/lecture-vue-trello/tree/api/board)
+
+4. [Service](https://github.com/sseom/lecture-vue-trello/tree/api/service)
+
+### Section 3.인증하기 Auth
+1. [navigation-guard](https://github.com/sseom/lecture-vue-trello/tree/auth/navigation-guard)
