@@ -9,6 +9,18 @@ import Card from '../components/Card.vue'
 // 사용하려면 Vue.use() 라는 함수 사용 해서 추가해야함 = 미들웨어? 라고함
 Vue.use(VueRouter)
 
+const requireAuth = (to, from, next) => {
+  // 로컬호스트에 토큰이 있는 지없는 지 체크
+  const isAuth = localStorage.getItem('token');
+
+  // 로그인 경로 -> 로그인 페이지에서 로그인 완료후 원래 페이지로 돌아가도록 리다이렉트
+  // to.path 쿼리 문자열이기 때문에 encodeURLComponent()을 사용해 아스키문자열로 변환을 해줘야함
+  const loginPath = `/login?rPath=${encodeURIComponent(to)}`;
+
+  // 로그인 토큰값이 있으면
+  isAuth ? next() : next(loginPath);
+}
+
 // 2. 라우트를 정의하세요.
 // Each route should map to a component. The "component" can
 // 각 라우트는 반드시 컴포넌트와 매핑되어야 합니다.
@@ -18,6 +30,7 @@ const routes = [
   { 
     path: '/', 
     component: Home,
+    beforeEnter: requireAuth, // 인증이 필요한 모든곳
   },
   { 
     path: '/login', 
@@ -26,10 +39,12 @@ const routes = [
   { 
     path: '/b/:boradId', // :boradId 라는 변수로 id값 받음
     component: Borad,
+    beforeEnter: requireAuth, // 인증이 필요한 모든곳
     children: [ // 하위
       { 
         path: '/b/:boradId/c/:cardId', 
         component: Card,
+        beforeEnter: requireAuth, // 인증이 필요한 모든곳
       },
     ],
   }, 
