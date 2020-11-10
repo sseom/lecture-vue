@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { borad } from '../api';
 
 export default { 
   data() {
@@ -38,17 +38,14 @@ export default {
   methods: {
     fetchData() {
       this.loading = true;
-      axios.get('http://localhost:3000/boards')
-        .then(res => { // 성공하면
+
+      borad.fatch()
+        .then(data => {
           this.boards = res.data;
         })
-        .catch(res => { // 실패시
-          // $router 의 replace() 를 통해서 결로 이동
-          this.$router.replace('/login');
-        })
-        .finally(() => { // then, catch가 모두 수행된 다음 실행
+        .finally(() => {
           this.loading = false;
-        })
+        });
     }
   }
 }
