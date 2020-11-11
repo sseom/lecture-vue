@@ -42,3 +42,4 @@
 
 ### Section 3.인증하기 Auth
 1. [navigation-guard](https://github.com/sseom/lecture-vue-trello/tree/auth/navigation-guard)
+2. [login](https://github.com/sseom/lecture-vue-trello/tree/auth/login)

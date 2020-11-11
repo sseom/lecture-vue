@@ -27,3 +27,10 @@ export const borad = {
     return request('get', '/borads');
   }
 }
+
+// login api 인증을 위한 
+export const auth = {
+  login(email, password) {
+    return request('post', '/login', { email, password });
+  }
+}
