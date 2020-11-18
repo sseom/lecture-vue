@@ -5,7 +5,7 @@
       <div>
         <label for="email">Email</label>
         <input class="form-control" type="text" name="email" 
-          v-model="email" autofocus placeholder="e.g., test@test.com" />
+          v-model="email" autofocus placeholder="test@test.com" />
       </div>
       <div>
         <label for="password">Passwrod</label>
@@ -20,14 +20,14 @@
 </template>
 
 <script>
-import { auth } from '../api'
+import { auth, setAuthInHeader } from '../api'
 
 export default {
   data() {
     return {
-      email: '',
-      password: '',
-      error: '',
+      email: '', // 입력한 값 받는 변수
+      password: '', // 입력한 값 받는 변수
+      error: '', // 에러 결과 값
       rPath: ''
     }
   },
@@ -36,24 +36,24 @@ export default {
       return !this.email || !this.password;
     }
   },
-  created() {
-    this.rPath = this.$route.query.rPath || '/'
+  created() { // 컴포넌트가 생성될때 
+    this.rPath = this.$route.query.rPath || '/';
   },
   methods: {
     onSubmit() {
-      // console.log( this.email, this.password);
+      console.log( this.email, this.password);
 
       // 로그인 api호출 : then 응답값 , catch 에러값
       auth.login( this.email, this.password )
         .then( data => {
           console.log(data); 
-          // localStorage.setItem('token', data.accessToken);
-          // setAuthInHeader(data.accessToken);
-          // this.$router.push(this.rPath);
+          localStorage.setItem('token', data.accessToken); // 토큰 정보를 로컬스토리지에 저장
+          setAuthInHeader(data.accessToken);
+          this.$router.push(this.rPath); // 루트경로로 리다이렉트
         })
         .catch( err => {
-          console.log(err); 
-          // this.error = err.data.error;
+          // console.log(err);
+          this.error = err.data.error;
         })
     }
   }

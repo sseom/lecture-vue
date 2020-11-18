@@ -15,22 +15,31 @@ const request = (method, url, data) => {
     url: DOMAIN + url, // 도메인정보랑 합쳐서
     data,
   }).then(result => result.data)
-  .catch(result => {
-    const {status} = result.response;
-    if( status === UNAUTHORIZED ) return onUnauthoriaed(); // 로그인페이지로 이동하도록
-    throw Error(result); // 그외 처리하지 않은 페이지는 에러를 던짐
-  })
+    .catch(result => {
+      const {status} = result.response;
+      if( status === UNAUTHORIZED ) onUnauthoriaed(); // 로그인페이지로 이동하도록
+      throw result.response; // 그외 처리하지 않은 페이지는 에러를 던짐
+    })
 }
 
-export const borad = {
-  fatch() { // 조회
-    return request('get', '/borads');
+// 모든 리퀘스트를 날리기전에 헤더값을 토큰정보로 설정
+export const setAuthInHeader = token => {
+  axios.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : null;
+}
+
+const {token} = localStorage;
+if (token) setAuthInHeader(token);
+
+
+export const board = {
+  fetch() { // 조회
+    return request('get', 'boards');
   }
 }
 
 // login api 인증을 위한 
 export const auth = {
   login(email, password) {
-    return request('post', '/login', { email, password });
+    return request('post', 'login', { email, password });
   }
 }
