@@ -48,3 +48,5 @@
 ### Section 4.홈화면 Home
 1. [보드  목록 조회 화면](https://github.com/sseom/lecture-vue-trello/tree/home/board-list)
 2. [보드 추가하기](https://github.com/sseom/lecture-vue-trello/tree/home/board-add)
+### Section 5.상태관리 Vuex 
+1. [상태 State](https://github.com/sseom/lecture-vue-trello/tree/vuex/state)

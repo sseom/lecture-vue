@@ -21,6 +21,7 @@
 <script>
 import { board } from '../api';
 import AddBoard from './AddBoard';
+import {mapState} from 'vuex';
 
 export default {
   components: {
@@ -31,8 +32,16 @@ export default {
       loading: false,
       boards: [],
       error: '',
-      isAddBoard: false,
     }
+  },
+  computed: {
+    // 이것을 객체 전개 연산자(Object Spread Operator)를 사용하여 외부 객체에 추가 하십시오.
+    ...mapState({
+      isAddBoard,
+    })
+    // isAddBoard() {
+    //   return this.$store.state.isAddBoard;
+    // },
   },
   created() { // 컴포넌트가 생성되면 fetchData에서 데이터를 가져옴
     this.fetchData();
