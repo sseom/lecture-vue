@@ -27,7 +27,7 @@
   - 라우팅 경로가 정적이지 않고 동적으로 바뀌는 것을 동적 라우트 매칭이라고 한다.
 
 7. [중첩 라우트 nested](https://github.com/sseom/lecture-vue-trello/tree/routing/nested)
-  - `children : [ { path: '/b/:boradId/c/:cardId', component: Card, } ]`
+  - `children : [ { path: '/b/:boardId/c/:cardId', component: Card, } ]`
 
 8. [데이터 불러오기 fetch](https://github.com/sseom/lecture-vue-trello/tree/routing/fetch)
 
@@ -43,4 +43,8 @@
 ### Section 3.인증하기 Auth
 1. [navigation-guard](https://github.com/sseom/lecture-vue-trello/tree/auth/navigation-guard)
 2. [login](https://github.com/sseom/lecture-vue-trello/tree/auth/login)
-2. [logout](https://github.com/sseom/lecture-vue-trello/tree/auth/logout)
+3. [logout](https://github.com/sseom/lecture-vue-trello/tree/auth/logout)
+
+### Section 4.홈화면 Home
+1. [보드  목록 조회 화면](https://github.com/sseom/lecture-vue-trello/tree/home/board-list)
+2. [보드 추가하기](https://github.com/sseom/lecture-vue-trello/tree/home/board-add)

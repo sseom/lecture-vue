@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../components/Home.vue' 
 import Login from '../components/Login.vue' 
 import NotFound from '../components/NotFound.vue' 
-import Borad from '../components/Borad.vue' 
+import Board from '../components/Board.vue' 
 import Card from '../components/Card.vue' 
 
 // 사용하려면 Vue.use() 라는 함수 사용 해서 추가해야함 = 미들웨어? 라고함
@@ -37,12 +37,12 @@ const routes = [
     component: Login, 
   },
   { 
-    path: '/b/:boradId', // :boradId 라는 변수로 id값 받음
-    component: Borad,
+    path: '/b/:boardId', // :boardId 라는 변수로 id값 받음
+    component: Board,
     beforeEnter: requireAuth, // 인증이 필요한 모든곳
     children: [ // 하위
       { 
-        path: '/b/:boradId/c/:cardId', 
+        path: '/b/:boardId/c/:cardId', 
         component: Card,
         beforeEnter: requireAuth, // 인증이 필요한 모든곳
       },
