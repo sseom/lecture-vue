@@ -14,18 +14,24 @@
         </a>
       </div>
     </div>
+    <AddBoard v-if="isAddBoard" @close="isAddBoard = false" @submit="onAddBoard"></AddBoard>
   </div>
 </template>
-
+ 
 <script>
 import { board } from '../api';
+import AddBoard from './AddBoard';
 
-export default { 
+export default {
+  components: {
+    AddBoard,
+  },
   data() {
     return {
       loading: false,
       boards: [],
       error: '',
+      isAddBoard: false,
     }
   },
   created() { // 컴포넌트가 생성되면 fetchData에서 데이터를 가져옴
@@ -33,7 +39,7 @@ export default {
   },
   updated() { // 만들어질때, 데이터객체에 변화가 감지되면 매번호출됨
     this.$refs.boardItem.forEach(el => {
-      console.log(el.dataset);
+      // console.log(el.dataset);
       el.style.backgroundColor = el.dataset.bgcolor;
     });
   },
@@ -43,16 +49,25 @@ export default {
 
       board.fetch()
         .then(data => {
-          console.log(data);
+          // console.log(data);
           this.boards = data.list;
-        })
+        }) 
         .finally(() => {
           this.loading = false;
         });
     },
     addBoard() {
-      console.log('add');
-    }
+      // console.log('add');
+      this.isAddBoard = true;
+    },
+    onAddBoard(title) { // 새로운보드 생성 
+      console.log('title : ', title);
+      // api 호출
+      board.create(title)
+        .then(() => {
+          this.fetchData(); // 보드 api를 다시 호출해서 데이터 갱신
+        })
+    },
   }
 }
 </script>

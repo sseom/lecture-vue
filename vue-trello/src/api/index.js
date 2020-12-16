@@ -34,12 +34,17 @@ if (token) setAuthInHeader(token);
 export const board = {
   fetch() { // 조회
     return request('get', 'boards');
+  },
+  create(title) { // 생성 
+    // method, url, data
+    return request('post', 'boards', {title});
   }
 }
 
 // login api 인증을 위한 
 export const auth = {
   login(email, password) {
+    // 
     return request('post', 'login', { email, password });
   }
 }
