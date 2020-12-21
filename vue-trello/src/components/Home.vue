@@ -39,9 +39,6 @@ export default {
     ...mapState([
       'isAddBoard',
     ])
-    // isAddBoard() {
-    //   return this.$store.state.isAddBoard;
-    // },
   },
   created() { // 컴포넌트가 생성되면 fetchData에서 데이터를 가져옴
     this.fetchData();
@@ -69,9 +66,6 @@ export default {
         });
     },
     addBoard() {
-      // console.log('add');
-      // this.isAddBoard = true;
-      
       // store에 있는 state > isAddBoard 값을 바꿔야함 -> mutations 을 사용
       this.$store.commit('SET_IS_ADD_BOARD', true);
     },
