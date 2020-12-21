@@ -17,11 +17,11 @@
     <AddBoard v-if="isAddBoard" @close="isAddBoard = false" @submit="onAddBoard"></AddBoard>
   </div>
 </template>
- 
+
 <script>
 import { board } from '../api';
 import AddBoard from './AddBoard';
-import {mapState} from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   components: {
@@ -36,9 +36,9 @@ export default {
   },
   computed: {
     // 이것을 객체 전개 연산자(Object Spread Operator)를 사용하여 외부 객체에 추가 하십시오.
-    ...mapState({
-      isAddBoard,
-    })
+    ...mapState([
+      'isAddBoard',
+    ])
     // isAddBoard() {
     //   return this.$store.state.isAddBoard;
     // },
@@ -67,7 +67,10 @@ export default {
     },
     addBoard() {
       // console.log('add');
-      this.isAddBoard = true;
+      // this.isAddBoard = true;
+      
+      // store에 있는 state > isAddBoard 값을 바꿔야함 -> mutations 을 사용
+      this.$store.commit('SET_IS_ADD_BOARD', true);
     },
     onAddBoard(title) { // 새로운보드 생성 
       console.log('title : ', title);

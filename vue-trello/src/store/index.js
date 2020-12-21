@@ -8,6 +8,11 @@ const store = new Vuex.Store({
   state: {
     isAddBoard: false,
   },
+  mutations: { // 변이
+    SET_IS_ADD_BOARD(state, toogle){
+      state.isAddBoard = toogle;
+    }
+  },
 });
 
 // 외부 사용 모듈오 export
