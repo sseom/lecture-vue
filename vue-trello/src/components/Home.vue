@@ -9,19 +9,19 @@
         </router-link>
       </div>
       <div class="board-item board-item-new">
-        <a class="new-board-btn" href="" @click.prevent="addBoard">
+        <a class="new-board-btn" href="" @click.prevent="SET_IS_ADD_BOARD(true)">
           + Create new board...
         </a>
       </div>
     </div>
-    <AddBoard v-if="isAddBoard" @close="isAddBoard = false" @submit="onAddBoard"></AddBoard>
+    <AddBoard v-if="isAddBoard" @submit="onAddBoard"></AddBoard>
   </div>
 </template>
 
 <script>
 import { board } from '../api';
 import AddBoard from './AddBoard';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   components: {
@@ -53,6 +53,9 @@ export default {
     });
   },
   methods: {
+    ...mapMutations([
+      'SET_IS_ADD_BOARD' // tthis.$store.commit('SET_IS_ADD_BOARD') 에 매핑합니다.
+    ]),
     fetchData() {
       this.loading = true;
 
