@@ -50,4 +50,5 @@
 2. [보드 추가하기](https://github.com/sseom/lecture-vue-trello/tree/home/board-add)
 ### Section 5.상태관리 Vuex 
 1. [상태 State](https://github.com/sseom/lecture-vue-trello/tree/vuex/state)
-2. [변이 Mutations](https://github.com/sseom/lecture-vue-trello/tree/vuex/mutations)
+2. [변이 Mutation](https://github.com/sseom/lecture-vue-trello/tree/vuex/mutation)
+3. [액션 Action](https://github.com/sseom/lecture-vue-trello/tree/vuex/action)

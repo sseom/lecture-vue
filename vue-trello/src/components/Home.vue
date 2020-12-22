@@ -69,13 +69,10 @@ export default {
       // store에 있는 state > isAddBoard 값을 바꿔야함 -> mutations 을 사용
       this.$store.commit('SET_IS_ADD_BOARD', true);
     },
-    onAddBoard(title) { // 새로운보드 생성 
-      console.log('title : ', title);
-      // api 호출
-      board.create(title)
-        .then(() => {
-          this.fetchData(); // 보드 api를 다시 호출해서 데이터 갱신
-        })
+    onAddBoard() { // 새로운보드 생성 
+      // api 호출은  store>actions>ADD_BOARD 에서 하도록
+      
+      this.fetchData();
     },
   }
 }
