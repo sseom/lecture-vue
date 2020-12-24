@@ -14,14 +14,14 @@
         </a>
       </div>
     </div>
-    <AddBoard v-if="isAddBoard" @submit="onAddBoard"></AddBoard>
+    <AddBoard v-if="isAddBoard"></AddBoard>
   </div>
 </template>
 
 <script>
 import { board } from '../api';
 import AddBoard from './AddBoard';
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   components: {
@@ -30,7 +30,6 @@ export default {
   data() {
     return {
       loading: false,
-      boards: [],
       error: '',
     }
   },
@@ -38,6 +37,7 @@ export default {
     // 이것을 객체 전개 연산자(Object Spread Operator)를 사용하여 외부 객체에 추가 하십시오.
     ...mapState([
       'isAddBoard',
+      'boards'
     ])
   },
   created() { // 컴포넌트가 생성되면 fetchData에서 데이터를 가져옴
@@ -53,26 +53,16 @@ export default {
     ...mapMutations([
       'SET_IS_ADD_BOARD' // tthis.$store.commit('SET_IS_ADD_BOARD') 에 매핑합니다.
     ]),
+    ...mapActions([
+      'FETCH_BOARD'
+    ]),
     fetchData() {
       this.loading = true;
-
-      board.fetch()
-        .then(data => {
-          // console.log(data);
-          this.boards = data.list;
-        }) 
+      this.FETCH_BOARD()
         .finally(() => {
           this.loading = false;
         });
-    },
-    addBoard() {
-      // store에 있는 state > isAddBoard 값을 바꿔야함 -> mutations 을 사용
-      this.$store.commit('SET_IS_ADD_BOARD', true);
-    },
-    onAddBoard() { // 새로운보드 생성 
-      // api 호출은  store>actions>ADD_BOARD 에서 하도록
       
-      this.fetchData();
     },
   }
 }
