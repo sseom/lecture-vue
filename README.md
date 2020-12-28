@@ -52,4 +52,4 @@
 1. [상태 State](https://github.com/sseom/lecture-vue-trello/tree/vuex/state)
 2. [변이 Mutation](https://github.com/sseom/lecture-vue-trello/tree/vuex/mutation)
 3. [액션 Action](https://github.com/sseom/lecture-vue-trello/tree/vuex/action)
-4. [보드목록 조회 refactor](https://github.com/sseom/lecture-vue-trello/tree/vuex/refactor)
+4. [보드목록 조회](https://github.com/sseom/lecture-vue-trello/tree/home/vuex)
