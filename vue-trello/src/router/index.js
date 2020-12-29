@@ -5,19 +5,20 @@ import Login from '../components/Login.vue'
 import NotFound from '../components/NotFound.vue' 
 import Board from '../components/Board.vue' 
 import Card from '../components/Card.vue' 
+import store from '../store'
 
 // 사용하려면 Vue.use() 라는 함수 사용 해서 추가해야함 = 미들웨어? 라고함
 Vue.use(VueRouter)
 
 const requireAuth = (to, from, next) => {
-  // 로컬호스트에 토큰이 있는 지없는 지 체크
-  const isAuth = localStorage.getItem('token');
-
+  const isAuth = store.getters.isAuth;
   // 로그인 경로 -> 로그인 페이지에서 로그인 완료후 원래 페이지로 돌아가도록 리다이렉트
   // to.path 쿼리 문자열이기 때문에 encodeURLComponent()을 사용해 아스키문자열로 변환을 해줘야함
-  const loginPath = `/login?rPath=${encodeURIComponent(to)}`;
+  const loginPath = `/login?rPath=${encodeURIComponent(to.path)}`;
 
-  // 로그인 토큰값이 있으면
+  console.log('isAuth : ', isAuth);
+
+  // 로컬호스트에 로그인 토큰 값이 유무 체크
   isAuth ? next() : next(loginPath);
 }
 
@@ -44,7 +45,6 @@ const routes = [
       { 
         path: '/b/:boardId/c/:cardId', 
         component: Card,
-        beforeEnter: requireAuth, // 인증이 필요한 모든곳
       },
     ],
   }, 

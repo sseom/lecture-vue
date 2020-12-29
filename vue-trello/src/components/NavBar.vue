@@ -11,21 +11,21 @@
 </template>
 
 <script>
-import { setAuthInHeader } from '../api';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
   computed: {
-    isAuth() { // 로그인이 됐는지 안됐는 지 체크
-      console.log(!!localStorage.getItem('token'));
-      return !!localStorage.getItem('token'); //boolean
-    },
+    // 로그인이 됐는지 안됐는 지 체크
+    ...mapGetters(['isAuth']),
   },
   methods: {
+    ...mapMutations(['LOGOUT']),
     logout() { 
-      // 토큰정보 제거
-      delete localStorage.token;
-      // api 호출할 때 헤더값에 토큰정보 담아서 보낸것을 기본값을 null로 
-      setAuthInHeader(null);
+      // store>mutation 에서 수행중
+      // 1.토큰정보 제거
+      // 2.api 호출할 때 헤더값에 토큰정보 담아서 보낸것을 기본값을 null로 
+      this.LOGOUT();
+      
       // 로그인페이지로 이동
       this.$router.push('/login');
     },

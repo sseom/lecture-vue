@@ -12,7 +12,7 @@
         <input class="form-control" type="password" 
           v-model="password" placeholder="123123" />
       </div>
-      <button  class="btn" :class="{'btn-success': !invalidForm}" type="submit" 
+      <button class="btn" :class="{'btn-success': !invalidForm}" type="submit" 
         :disabled="invalidForm">Log In</button>
     </form>
     <p class="error" v-if="error">{{error}}</p>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { auth, setAuthInHeader } from '../api'
+import { mapActions } from 'vuex';
 
 export default {
   data() {
@@ -40,15 +40,15 @@ export default {
     this.rPath = this.$route.query.rPath || '/';
   },
   methods: {
+    ...mapActions([
+      'LOGIN',
+    ]),
     onSubmit() {
-      console.log( this.email, this.password);
-
-      // 로그인 api호출 : then 응답값 , catch 에러값
-      auth.login( this.email, this.password )
+      // 로그인 액션함수 호출 api호출 : then 응답값 , catch 에러값
+      // 객체로 받기로 했으니 객체로 전달
+      this.LOGIN({email: this.email, password: this.password})
         .then( data => {
-          console.log(data); 
-          localStorage.setItem('token', data.accessToken); // 토큰 정보를 로컬스토리지에 저장
-          setAuthInHeader(data.accessToken);
+          // console.log(data);
           this.$router.push(this.rPath); // 루트경로로 리다이렉트
         })
         .catch( err => {
