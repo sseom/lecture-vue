@@ -26,7 +26,7 @@ const store = new Vuex.Store({
     },
     LOGIN(state, token) { // 토큰정보 셋팅
       // 0. 토큰정보가 없으면 리턴
-      if( token ) return;
+      if (!token) return;
       // 1. 있으면 상태.토큰에 토큰값을 셋팅 = 상태갱신
       state.token = token;
       // 2. 로컬스토리지에 토큰값을 저장
@@ -63,6 +63,7 @@ const store = new Vuex.Store({
     LOGIN({commit}, {email, password}) {
       return api.auth.login(email, password)
         .then(({accessToken}) => {
+          console.log('accessToken : ', accessToken);
           // 로그인 응답받고 그중에 accessToken만 받고
           // 그 결과로 로그인 변이(뮤테이션)한테 위임
           commit('LOGIN', accessToken);

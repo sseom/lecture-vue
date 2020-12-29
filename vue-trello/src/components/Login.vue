@@ -47,13 +47,11 @@ export default {
       // 로그인 액션함수 호출 api호출 : then 응답값 , catch 에러값
       // 객체로 받기로 했으니 객체로 전달
       this.LOGIN({email: this.email, password: this.password})
-        .then( data => {
-          // console.log(data);
+        .then(data => {
           this.$router.push(this.rPath); // 루트경로로 리다이렉트
         })
-        .catch( err => {
-          // console.log(err);
-          this.error = err.data.error;
+        .catch(err => {
+          this.error = err.data.error
         })
     }
   }
