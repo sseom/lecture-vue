@@ -54,3 +54,4 @@
 3. [액션 Action](https://github.com/sseom/lecture-vue-trello/tree/vuex/action)
 4. [vuex 적용 - 보드목록 조회](https://github.com/sseom/lecture-vue-trello/tree/home/vuex)
 5. [vuex 적용 - 인증1,2 (로그인 로그아웃)](https://github.com/sseom/lecture-vue-trello/tree/auth/vuex)
+6. [스토어 개선 - 코드분리 리팩토링](https://github.com/sseom/lecture-vue-trello/tree/vuex/refactor)
