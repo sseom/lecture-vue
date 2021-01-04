@@ -4,8 +4,11 @@ const mutations = { // 변이
   SET_IS_ADD_BOARD(state, toogle){
     state.isAddBoard = toogle;
   },
+  SET_BOARD(state, board) {
+    state.board = board; // 한개의 보드 셋팅
+  },
   SET_BOARDS(state, boards) {
-    state.boards = boards; // 리스트를 셋팅만
+    state.boards = boards; // 여러개 보드 리스트를 셋팅만
   },
   LOGIN(state, token) { // 토큰정보 셋팅
     // 0. 토큰정보가 없으면 리턴

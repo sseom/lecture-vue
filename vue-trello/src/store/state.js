@@ -1,5 +1,6 @@
 const state = {
   isAddBoard: false,
+  board: {},
   boards: [],
   token: null,
 }

@@ -55,3 +55,8 @@
 4. [vuex 적용 - 보드목록 조회](https://github.com/sseom/lecture-vue-trello/tree/home/vuex)
 5. [vuex 적용 - 인증1,2 (로그인 로그아웃)](https://github.com/sseom/lecture-vue-trello/tree/auth/vuex)
 6. [스토어 개선 - 코드분리 리팩토링](https://github.com/sseom/lecture-vue-trello/tree/vuex/refactor)
+
+### Section 6. 기본플로우 구현
+1. [보드 조회 화면 개발 1](https://github.com/sseom/lecture-vue-trello/tree/board/query)
+    - 보드추가 버튼으로 생성한 보드 상세 화면으로 리다이렉트 하는 기능 추가
+    - 보드 상세 화면으로 들어가면 보드를 조회 api를 호출해 결과를 화면에 뿌려기

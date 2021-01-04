@@ -7,13 +7,21 @@ const actions = {
 
   // 보드 추가 
   ADD_BOARD(_, {title}) {
-    return api.board.create(title);
+    return api.board.create(title)
+      .then((data) => data.item );
   },
-  FETCH_BOARD({commit}) { 
-    return api.board.fetch()
-      .then(res => {
+  FETCH_BOARD({commit}, {id}) { 
+    return api.board.fetch(id)
+      .then(data => {
         // 상태 갱신하도록 mutations 호출
-        commit('SET_BOARDS', res.list);
+        commit('SET_BOARD', data.item);
+      });
+  },
+  FETCH_BOARDS({commit}) { 
+    return api.board.fetch()
+      .then(data => {
+        // 상태 갱신하도록 mutations 호출
+        commit('SET_BOARDS', data.list);
       });
   },
   // 로그인에 대한 액션 - api호출

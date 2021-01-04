@@ -53,8 +53,9 @@ export default {
     addBoard() {
       this.SET_IS_ADD_BOARD(false);
       this.ADD_BOARD({title: this.input})
-        .then(() => {
-          this.FETCH_BOARD();
+        .then(({id}) => {
+          // this.FETCH_BOARDS(); => 생성된 보드로 화면이 넘어가니 패치보드 필요없음
+          this.$router.push(`/b/${id}`);
         });
     }
   }

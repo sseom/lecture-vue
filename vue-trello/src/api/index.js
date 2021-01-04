@@ -28,8 +28,8 @@ export const setAuthInHeader = token => {
 }
 
 export const board = {
-  fetch() { // 조회
-    return request('get', 'boards');
+  fetch(id) { // 조회
+    return id ? request('get', `boards/${id}`) : request('get', 'boards');
   },
   create(title) { // 생성 
     // method, url, data

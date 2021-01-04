@@ -54,11 +54,11 @@ export default {
       'SET_IS_ADD_BOARD' // tthis.$store.commit('SET_IS_ADD_BOARD') 에 매핑합니다.
     ]),
     ...mapActions([
-      'FETCH_BOARD'
+      'FETCH_BOARDS'
     ]),
     fetchData() {
       this.loading = true;
-      this.FETCH_BOARD()
+      this.FETCH_BOARDS()
         .finally(() => {
           this.loading = false;
         });
