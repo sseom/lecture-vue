@@ -61,4 +61,6 @@
     - '보드추가' 버튼으로 보드를 생성하고 바로 보드 상세 화면으로 리다이렉트 하는 기능 추가
     - 보드 상세 화면으로 들어가면 보드를 조회 api를 호출해 결과를 화면에 뿌려기
 2. [보드 조회 화면 개발 2](https://github.com/sseom/lecture-vue-trello/tree/board/markup)
-    - 보드조회 - 자동생성된 리스트 나역 (todo, doing, done)
+    - 보드조회 - 자동생성된 리스트 내역 (todo, doing, done)
+3. [카드 생성 1 - 마크업](https://github.com/sseom/lecture-vue-trello/tree/card/add-ui)
+    - 카드생성 - 타이틀 입력
