@@ -8,7 +8,7 @@
       <AddCard @close="isAddCard=false"/>
     </div>
     <div v-else>
-      <a href="" class="add-card-btn" @click.prevent="isAddCard=true">
+      <a href="" class="add-card-btn" @click.prevent.stop="isAddCard=true">
         &plus; Add another card...
       </a>
     </div>
