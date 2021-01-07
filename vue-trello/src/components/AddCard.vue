@@ -10,7 +10,11 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
+  props: [
+    'listId',
+  ],
   data() {
     return {
       inputTitle: ''
@@ -26,8 +30,15 @@ export default {
     this.setupClickOutside(this.$el); // 외부 클릭시 카드폼이 닫히도록
   },
   methods: {
+    ...mapActions(['ADD_CARD']),
     onSubmit() {
-      console.log('submit!');
+      // console.log('submit!');
+      if( this.invalidInput ) return;
+      const {inputTitle, listId} = this;
+      this.ADD_CARD({title: inputTitle, listId})
+        .finally(() => {
+          this.inputTitle = '';
+        });
     },
     setupClickOutside(el) {  
       // console.log('el : ', el);

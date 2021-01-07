@@ -24,6 +24,13 @@ const actions = {
         commit('SET_BOARDS', data.list);
       });
   },
+  ADD_CARD({dispatch, state}, {title, listId, pos}) {
+    return api.card.create(title, listId, pos)
+      .then(() => {
+        // 카드생성이 되었으면 보드목록을 재조회하기
+        dispatch('FETCH_BOARD', {id: state.board.id});
+      });
+  },
   // 로그인에 대한 액션 - api호출
   LOGIN({commit}, {email, password}) {
     return api.auth.login(email, password)

@@ -64,3 +64,4 @@
     - 보드조회 - 자동생성된 리스트 내역 (todo, doing, done)
 3. [카드 생성 1 - 마크업](https://github.com/sseom/lecture-vue-trello/tree/card/add-ui)
     - 카드생성 - 타이틀 입력
+4. [카드 생성 2 - API 연동](https://github.com/sseom/lecture-vue-trello/tree/card/app-api)
