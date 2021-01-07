@@ -10,6 +10,9 @@ const mutations = { // 변이
   SET_BOARDS(state, boards) {
     state.boards = boards; // 여러개 보드 리스트를 셋팅만
   },
+  SET_CARD(state, card) {
+    state.card = card;
+  },
   LOGIN(state, token) { // 토큰정보 셋팅
     // 0. 토큰정보가 없으면 리턴
     if (!token) return;

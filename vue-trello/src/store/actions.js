@@ -31,6 +31,14 @@ const actions = {
         dispatch('FETCH_BOARD', {id: state.board.id});
       });
   },
+  FETCH_CARD({commit}, {id}) {
+    return api.card.fetch(id)
+      .then((data) => {
+        // 상태 갱신하도록 mutations 호출
+        commit('SET_CARD', data.item);
+        console.log('data : ', data.item);
+      });
+  },
   // 로그인에 대한 액션 - api호출
   LOGIN({commit}, {email, password}) {
     return api.auth.login(email, password)

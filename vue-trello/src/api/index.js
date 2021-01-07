@@ -47,7 +47,10 @@ export const auth = {
 
 // 카드 api
 export const card = {
+  fetch(id) { // 조회
+    return request('get', `cards/${id}`);
+  },
   create(title, listId, pos) {
     return request('post', 'cards', {title, listId, pos});
-  }
+  },
 }
