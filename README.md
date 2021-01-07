@@ -65,3 +65,5 @@
 3. [카드 생성 1 - 마크업](https://github.com/sseom/lecture-vue-trello/tree/card/add-ui)
     - 카드생성 - 타이틀 입력
 4. [카드 생성 2 - API 연동](https://github.com/sseom/lecture-vue-trello/tree/card/app-api)
+5. [카드상세 조회 1 - 라우팅](https://github.com/sseom/lecture-vue-trello/tree/card/show-routing)
+    - 생성된 카드아이템 클릭했을때 모달창(카드정보)이 뜨는 작업
