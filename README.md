@@ -69,3 +69,5 @@
     - 생성된 카드아이템 클릭했을때 모달창(카드정보)이 뜨는 작업
 6. [카드상세 조회 2 - API 연동](https://github.com/sseom/lecture-vue-trello/tree/card/show-api)
     - 카드상세정보 모달에서 api 연동해서 카드정보를 출력하는 작업
+7. [카드수정 - API 연동](https://github.com/sseom/lecture-vue-trello/tree/card/show-api)
+    - 생성한 카드의 타이틀 및 상세내용을 수정하는 기능

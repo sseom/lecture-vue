@@ -53,4 +53,8 @@ export const card = {
   create(title, listId, pos) {
     return request('post', 'cards', {title, listId, pos});
   },
+  update(id, payload) { 
+    // payload -> title,description,listId,pos 의 정보가 들어있는 객체 데이터
+    return request('put', `cards/${id}`, payload);
+  },
 }
